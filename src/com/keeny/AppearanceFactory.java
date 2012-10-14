@@ -17,6 +17,7 @@ import java.awt.*;
 
 public class AppearanceFactory {
 
+    private static Color3f white = rgb(255, 255, 255);
     private static Color3f black = rgb(0, 0, 0);
 
     public AppearanceFactory() {
@@ -28,11 +29,34 @@ public class AppearanceFactory {
         return textureAppearance(navy, "cords.jpg");
     }
 
+    public Appearance shirt() {
+        Color3f offWhite = rgb(250, 250, 250);
+
+        return textureAppearance(offWhite, "shirt.jpg");
+    }
+
+    public Appearance shirtSleaves() {
+        Color3f olive = rgb(0, 100, 0);
+
+        return mattAppearance(olive);
+    }
+
     public Appearance skin() {
         Color3f skin = rgb(255, 181, 145);
 
         return mattAppearance(skin);
     }
+
+    public Appearance skinShadow() {
+        Color3f skin = rgb(204, 146, 116);
+
+        return mattAppearance(skin);
+    }
+
+    public Appearance face() {
+        return textureAppearance(white, "face.jpg");
+    }
+
 
     public Appearance hair() {
         Color3f ginger = rgb(255, 128, 0);
@@ -49,6 +73,8 @@ public class AppearanceFactory {
 
         return appearance;
     }
+
+
 
     private Appearance mattAppearance(Color3f diffuseColor){
         // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
@@ -83,5 +109,4 @@ public class AppearanceFactory {
     private static Color3f rgb(int r, int g, int b){
         return new Color3f(new Color(r, g, b));
     }
-
 }

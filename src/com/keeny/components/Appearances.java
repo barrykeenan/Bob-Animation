@@ -48,28 +48,6 @@ public class Appearances {
         return appear;
     }
 
-    //--------------------------------------------------
-
-    public static Appearance faceAppearance() {
-        Appearance appear = skinAppearance();
-
-        // Create a texture from the image file
-        TextureLoader tex = new TextureLoader("face.jpg", AppMain.theApp);
-        // Scale the texture so it's about the same size as
-        // in the original file (factor of 20 seems to do this)
-        TextureAttributes texAttr = new TextureAttributes();
-        Transform3D textureTrans = new Transform3D();
-        textureTrans.setScale(1);
-        texAttr.setTextureTransform(textureTrans);
-
-        appear.setTextureAttributes(texAttr);
-        // Attach the texture to the appearance
-        if (tex != null)
-            appear.setTexture(tex.getTexture());
-
-        return appear;
-    }
-
     public static Appearance torsoAppearance() {
         Color3f olive = rgb(0, 100, 0);
 

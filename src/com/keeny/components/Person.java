@@ -58,9 +58,7 @@ public class Person extends BranchGroup {
         TransformGroup trunkTG = new TransformGroup();
         trunkTG.setTransform(offset);
         torsoTG.addChild(trunkTG);
-//        trunkTG.addChild(new Cylinder(0.4f, 1.0f, Cylinder.GENERATE_NORMALS | Cylinder.GENERATE_TEXTURE_COORDS, Appearances.shirtAppearance()));
-
-        trunkTG.addChild(new Cylinder(0.4f, 1.0f, Primitive.GENERATE_TEXTURE_COORDS, Appearances.shirtAppearance()));
+        trunkTG.addChild(new Cylinder(0.4f, 1.0f, primFlags, materials.shirt()));
 
         //Make collar
         offset.setScale(new Vector3d(1.0, 0.3, 1.0));
@@ -68,7 +66,7 @@ public class Person extends BranchGroup {
         TransformGroup collarTG = new TransformGroup();
         collarTG.setTransform(offset);
         trunkTG.addChild(collarTG);
-        collarTG.addChild(new Sphere(0.4f, Sphere.GENERATE_NORMALS, Appearances.torsoAppearance()));
+        collarTG.addChild(new Sphere(0.4f, primFlags, materials.shirtSleaves()));
 
         //Make left arm
         offset.setScale(new Vector3d(1.0, 1.0, 2.0));
@@ -94,7 +92,7 @@ public class Person extends BranchGroup {
         TransformGroup neckTG = new TransformGroup();
         neckTG.setTransform(offset);
         trunkTG.addChild(neckTG);
-        neckTG.addChild(new Cone(0.15f, 0.3f, Appearances.skinAppearance()));
+        neckTG.addChild(new Cone(0.15f, 0.3f, primFlags, materials.skinShadow()));
 
         //attach the head
         neckTG.addChild(head());
@@ -144,22 +142,21 @@ public class Person extends BranchGroup {
         TransformGroup faceTG = new TransformGroup();
         faceTG.setTransform(faceT3D);
         headTG.addChild(faceTG);
-        faceTG.addChild(new Sphere(0.25f, Sphere.GENERATE_NORMALS |
-                Sphere.GENERATE_TEXTURE_COORDS, 20, Appearances.faceAppearance()));
+        faceTG.addChild(new Sphere(0.25f, primFlags, 20, materials.face()));
 
         //Make left ear
         offset.setTranslation(new Vector3f(-0.2f, -0.04f, -0.01f));
         TransformGroup leftEarTG = new TransformGroup();
         leftEarTG.setTransform(offset);
         faceTG.addChild(leftEarTG);
-        leftEarTG.addChild(new Sphere(0.09f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance()));
+        leftEarTG.addChild(new Sphere(0.09f, primFlags, materials.skin()));
 
         //Make right ear
         offset.setTranslation(new Vector3f(0.2f, -0.04f, -0.01f));
         TransformGroup rightEarTG = new TransformGroup();
         rightEarTG.setTransform(offset);
         faceTG.addChild(rightEarTG);
-        rightEarTG.addChild(new Sphere(0.09f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance()));
+        rightEarTG.addChild(new Sphere(0.09f, primFlags, materials.skin()));
 
         //Make hair
         Transform3D hairRotate = new Transform3D();

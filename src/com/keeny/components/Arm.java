@@ -1,10 +1,12 @@
 package com.keeny.components;
 
+import com.keeny.AppearanceFactory;
 import com.sun.j3d.loaders.IncorrectFormatException;
 import com.sun.j3d.loaders.ParsingErrorException;
 import com.sun.j3d.loaders.Scene;
 import com.sun.j3d.loaders.objectfile.ObjectFile;
 import com.sun.j3d.utils.geometry.Cylinder;
+import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.geometry.Sphere;
 
 import javax.media.j3d.*;
@@ -23,6 +25,11 @@ public class Arm extends BranchGroup {
 
     //globals
     private boolean left;
+
+    private AppearanceFactory materials = new AppearanceFactory();
+    private int normal = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
+    private int textured = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
+
 
     //--------------------------------------------------
 
@@ -54,21 +61,21 @@ public class Arm extends BranchGroup {
         Transform3D shoulderRot = new Transform3D();
         shoulderRot.rotZ(left ? Math.toRadians(-19) : Math.toRadians(19));
         shoulderAngleTG.setTransform(shoulderRot);
-        shoulderAngleTG.addChild(new Sphere(0.13f, Sphere.GENERATE_NORMALS, Appearances.torsoAppearance()));
+        shoulderAngleTG.addChild(new Sphere(0.13f, normal, materials.shirtSleaves()));
 
         //Make upper Arm
         offset.setTranslation(new Vector3f(0.0f, -0.18f, 0.0f));
         TransformGroup upperArmTG = new TransformGroup();
         upperArmTG.setTransform(offset);
         shoulderAngleTG.addChild(upperArmTG);
-        upperArmTG.addChild(new Cylinder(0.13f, 0.4f, Appearances.torsoAppearance()));
+        upperArmTG.addChild(new Cylinder(0.13f, 0.4f, normal, materials.shirtSleaves()));
 
         //Make upper Arm 2 - add to the above TG
         offset.setTranslation(new Vector3f(0.0f, -0.3f, 0.0f));
         TransformGroup upperArm2TG = new TransformGroup();
         upperArm2TG.setTransform(offset);
         upperArmTG.addChild(upperArm2TG);
-        upperArm2TG.addChild(new Cylinder(0.11f, 0.3f, Appearances.skinAppearance()));
+        upperArm2TG.addChild(new Cylinder(0.11f, 0.3f, normal, materials.skin()));
 
         //Add elbow + lower arm
         TransformGroup elbowTG = new TransformGroup();
@@ -123,7 +130,7 @@ public class Arm extends BranchGroup {
                 left ? Math.toRadians(16) : Math.toRadians(-16)));
         elbowAngleTG.setTransform(elbowAngleT3D);
         elbowTG.addChild(elbowAngleTG);
-        elbowAngleTG.addChild(new Sphere(0.11f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance()));
+        elbowAngleTG.addChild(new Sphere(0.11f, normal, materials.skin()));
 
         //Make lower Arm - add it to the elbowAngleTG NOT the global localRoot
         offset.setTranslation(new Vector3f(0.0f, -0.13f, 0.01f));

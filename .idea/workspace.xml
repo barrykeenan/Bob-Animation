@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64162a13-9a24-4563-80a0-f6b3c5cd23ef" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" afterPath="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Arm.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Leg.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Leg.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Person.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Person.java" />
     </list>
     <ignored path="Bob Animation.iws" />
@@ -73,10 +76,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Person.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Person.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="27" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
+            <state line="94" column="82" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.5165289">
               <folding />
             </state>
           </provider>
@@ -85,7 +88,7 @@
       <file leaf-file-name="Leg.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Leg.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="0" selection-start="580" selection-end="671" vertical-scroll-proportion="0.0">
+            <state line="23" column="4" selection-start="517" selection-end="672" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -94,7 +97,7 @@
       <file leaf-file-name="Arm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Arm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="63" column="84" selection-start="2157" selection-end="2213" vertical-scroll-proportion="0.0">
+            <state line="23" column="60" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -103,7 +106,7 @@
       <file leaf-file-name="Appearances.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="92" column="61" selection-start="2755" selection-end="2755" vertical-scroll-proportion="-10.115385">
+            <state line="51" column="0" selection-start="1431" selection-end="1509" vertical-scroll-proportion="-7.8076925">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -111,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppearanceFactory.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AppearanceFactory.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="36" selection-start="709" selection-end="709" vertical-scroll-proportion="0.48347107">
+            <state line="49" column="32" selection-start="1025" selection-end="1035" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -135,13 +138,13 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/AppMain.java" />
         <option value="$PROJECT_DIR$/../ball/AppearanceFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/keeny/components/Leg.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
-        <option value="$PROJECT_DIR$/src/com/keeny/components/Person.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/components/Leg.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/components/Person.java" />
       </list>
     </option>
   </component>
@@ -539,13 +542,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Arm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="84" selection-start="2157" selection-end="2213" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ball/AppearanceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="11" selection-start="139" selection-end="139" vertical-scroll-proportion="0.1446281">
@@ -562,35 +558,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Leg.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="0" selection-start="580" selection-end="671" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Person.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="27" selection-start="809" selection-end="809" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="92" column="61" selection-start="2755" selection-end="2755" vertical-scroll-proportion="-10.115385">
+        <state line="51" column="0" selection-start="1431" selection-end="1509" vertical-scroll-proportion="-7.8076925">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Leg.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="4" selection-start="517" selection-end="672" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Arm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="60" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="36" selection-start="709" selection-end="709" vertical-scroll-proportion="0.48347107">
+        <state line="49" column="32" selection-start="1025" selection-end="1035" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Person.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="94" column="82" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.5165289">
+          <folding />
         </state>
       </provider>
     </entry>
