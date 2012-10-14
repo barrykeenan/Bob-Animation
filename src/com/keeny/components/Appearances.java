@@ -22,43 +22,6 @@ public class Appearances {
 
     private static Color3f black = rgb(0, 0, 0);
 
-    public static Appearance shirtAppearance() {
-        Appearance appear = torsoAppearance();
-
-        // Create a texture from the image file
-        TextureLoader tl = new TextureLoader("shirt.jpg", AppMain.theApp);
-        // Scale the texture so it's about the same size as
-        // in the original file (factor of 20 seems to do this)
-        //TextureAttributes texAttr = new TextureAttributes();
-        //Transform3D textureTrans = new Transform3D();
-        //textureTrans.setScale(1);
-        //texAttr.setTextureTransform(textureTrans);
-
-        //appear.setTextureAttributes(texAttr);
-        // Attach the texture to the appearance
-        if (tl != null) {
-            Texture shirt = tl.getTexture();
-
-            appear.setTexture(shirt);
-        }
-
-
-        //appear.setMaterial(material);
-
-        return appear;
-    }
-
-    public static Appearance torsoAppearance() {
-        Color3f olive = rgb(0, 100, 0);
-
-        return mattAppearance(olive);
-    }
-
-    public static Appearance skinAppearance() {
-        Color3f skin = rgb(255, 181, 145);
-
-        return mattAppearance(skin);
-    }
 
     private static Color3f rgb(int r, int g, int b){
         return new Color3f(new Color(r, g, b));

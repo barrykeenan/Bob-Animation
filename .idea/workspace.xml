@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="64162a13-9a24-4563-80a0-f6b3c5cd23ef" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" afterPath="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Arm.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Leg.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Leg.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Person.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Person.java" />
     </list>
     <ignored path="Bob Animation.iws" />
@@ -76,11 +74,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Person.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Person.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Person.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="82" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.5165289">
-              <folding />
+            <state line="257" column="0" selection-start="10556" selection-end="10556" vertical-scroll-proportion="-9.8">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +97,7 @@
       <file leaf-file-name="Arm.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Arm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="60" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
+            <state line="199" column="44" selection-start="7754" selection-end="7754" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +106,7 @@
       <file leaf-file-name="Appearances.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="0" selection-start="1431" selection-end="1509" vertical-scroll-proportion="-7.8076925">
+            <state line="73" column="75" selection-start="2030" selection-end="2030" vertical-scroll-proportion="-11.923077">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,10 +114,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppearanceFactory.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="AppearanceFactory.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="49" column="32" selection-start="1025" selection-end="1035" vertical-scroll-proportion="0.0">
+            <state line="83" column="8" selection-start="2016" selection-end="2016" vertical-scroll-proportion="0.4214876">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -140,11 +140,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/com/keeny/AppMain.java" />
         <option value="$PROJECT_DIR$/../ball/AppearanceFactory.java" />
-        <option value="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/components/Leg.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
-        <option value="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/components/Person.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java" />
       </list>
     </option>
   </component>
@@ -452,6 +452,7 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3997344" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934928" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -466,7 +467,6 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4860558" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -558,15 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="0" selection-start="1431" selection-end="1509" vertical-scroll-proportion="-7.8076925">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Leg.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="23" column="4" selection-start="517" selection-end="672" vertical-scroll-proportion="0.0">
@@ -576,14 +567,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Arm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="60" selection-start="710" selection-end="710" vertical-scroll-proportion="0.0">
+        <state line="199" column="44" selection-start="7754" selection-end="7754" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="32" selection-start="1025" selection-end="1035" vertical-scroll-proportion="0.0">
+        <state line="73" column="75" selection-start="2030" selection-end="2030" vertical-scroll-proportion="-11.923077">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -592,8 +583,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Person.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="94" column="82" selection-start="3466" selection-end="3466" vertical-scroll-proportion="0.5165289">
-          <folding />
+        <state line="257" column="0" selection-start="10556" selection-end="10556" vertical-scroll-proportion="-9.8">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/AppearanceFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="8" selection-start="2016" selection-end="2016" vertical-scroll-proportion="0.4214876">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

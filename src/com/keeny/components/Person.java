@@ -23,7 +23,8 @@ import javax.vecmath.Vector3f;
 public class Person extends BranchGroup {
 
     AppearanceFactory materials = new AppearanceFactory();
-    private int primFlags = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
+    private int normal = Primitive.GENERATE_NORMALS;
+    private int textured = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
 
     /**
      * Constructor - add the torso and pelvis components
@@ -58,7 +59,7 @@ public class Person extends BranchGroup {
         TransformGroup trunkTG = new TransformGroup();
         trunkTG.setTransform(offset);
         torsoTG.addChild(trunkTG);
-        trunkTG.addChild(new Cylinder(0.4f, 1.0f, primFlags, materials.shirt()));
+        trunkTG.addChild(new Cylinder(0.4f, 1.0f, textured, materials.shirt()));
 
         //Make collar
         offset.setScale(new Vector3d(1.0, 0.3, 1.0));
@@ -66,7 +67,7 @@ public class Person extends BranchGroup {
         TransformGroup collarTG = new TransformGroup();
         collarTG.setTransform(offset);
         trunkTG.addChild(collarTG);
-        collarTG.addChild(new Sphere(0.4f, primFlags, materials.shirtSleaves()));
+        collarTG.addChild(new Sphere(0.4f, normal, materials.shirtSleaves()));
 
         //Make left arm
         offset.setScale(new Vector3d(1.0, 1.0, 2.0));
@@ -92,7 +93,7 @@ public class Person extends BranchGroup {
         TransformGroup neckTG = new TransformGroup();
         neckTG.setTransform(offset);
         trunkTG.addChild(neckTG);
-        neckTG.addChild(new Cone(0.15f, 0.3f, primFlags, materials.skinShadow()));
+        neckTG.addChild(new Cone(0.15f, 0.3f, normal, materials.skinShadow()));
 
         //attach the head
         neckTG.addChild(head());
@@ -142,21 +143,21 @@ public class Person extends BranchGroup {
         TransformGroup faceTG = new TransformGroup();
         faceTG.setTransform(faceT3D);
         headTG.addChild(faceTG);
-        faceTG.addChild(new Sphere(0.25f, primFlags, 20, materials.face()));
+        faceTG.addChild(new Sphere(0.25f, textured, 20, materials.face()));
 
         //Make left ear
         offset.setTranslation(new Vector3f(-0.2f, -0.04f, -0.01f));
         TransformGroup leftEarTG = new TransformGroup();
         leftEarTG.setTransform(offset);
         faceTG.addChild(leftEarTG);
-        leftEarTG.addChild(new Sphere(0.09f, primFlags, materials.skin()));
+        leftEarTG.addChild(new Sphere(0.09f, normal, materials.skin()));
 
         //Make right ear
         offset.setTranslation(new Vector3f(0.2f, -0.04f, -0.01f));
         TransformGroup rightEarTG = new TransformGroup();
         rightEarTG.setTransform(offset);
         faceTG.addChild(rightEarTG);
-        rightEarTG.addChild(new Sphere(0.09f, primFlags, materials.skin()));
+        rightEarTG.addChild(new Sphere(0.09f, normal, materials.skin()));
 
         //Make hair
         Transform3D hairRotate = new Transform3D();
@@ -168,7 +169,7 @@ public class Person extends BranchGroup {
         TransformGroup hairTG = new TransformGroup();
         hairTG.setTransform(hairRotate);
         faceTG.addChild(hairTG);
-        Sphere test = new Sphere(0.4f, primFlags, 20, materials.hair());
+        Sphere test = new Sphere(0.4f, textured, 20, materials.hair());
         hairTG.addChild(test);
 
         //Make band
@@ -180,7 +181,7 @@ public class Person extends BranchGroup {
         TransformGroup bandTG = new TransformGroup();
         bandTG.setTransform(bandRotate);
         faceTG.addChild(bandTG);
-        bandTG.addChild(new Cylinder(0.25f, 0.05f, Appearances.hatAppearance()));
+        bandTG.addChild(new Cylinder(0.25f, 0.05f, normal, materials.visor()));
 
         //Make peak
         Transform3D peakT3D = new Transform3D();
@@ -189,7 +190,7 @@ public class Person extends BranchGroup {
         TransformGroup peakTG = new TransformGroup();
         peakTG.setTransform(peakT3D);
         faceTG.addChild(peakTG);
-        peakTG.addChild(new Cone(0.25f, 0.06f, Appearances.hatAppearance()));
+        peakTG.addChild(new Cone(0.25f, 0.06f, normal, materials.visor()));
 
         //Make left eye
         Transform3D leftEyeRotate = new Transform3D();
@@ -200,8 +201,8 @@ public class Person extends BranchGroup {
         TransformGroup leftEyeTG = new TransformGroup();
         leftEyeTG.setTransform(leftEyeT3D);
         faceTG.addChild(leftEyeTG);
-        leftEyeTG.addChild(new Cylinder(0.05f, 0.001f, Appearances.eyeAppearance()));
-        leftEyeTG.addChild(new Cylinder(0.055f, 0.025f, Appearances.eyeTransAppearance()));
+        leftEyeTG.addChild(new Cylinder(0.05f, 0.001f, normal, materials.eye()));
+        leftEyeTG.addChild(new Cylinder(0.055f, 0.025f, normal, materials.glassesLens()));
 
         //Make leftHook
         Transform3D leftHookRotateX = new Transform3D();
@@ -215,8 +216,7 @@ public class Person extends BranchGroup {
         TransformGroup leftHookTG = new TransformGroup();
         leftHookTG.setTransform(leftHookT3D);
         faceTG.addChild(leftHookTG);
-        leftHookTG.addChild(new Cylinder(0.003f, 0.25f, Appearances.eyeAppearance()));
-        leftHookTG.addChild(new Cylinder(0.0031f, 0.251f, Appearances.eyeTransAppearance()));
+        leftHookTG.addChild(new Cylinder(0.005f, 0.25f, normal, materials.glassesFrame()));
 
         //Make right eye
         Transform3D rightEyeRotate = new Transform3D();
@@ -227,8 +227,8 @@ public class Person extends BranchGroup {
         TransformGroup rightEyeTG = new TransformGroup();
         rightEyeTG.setTransform(rightEyeT3D);
         faceTG.addChild(rightEyeTG);
-        rightEyeTG.addChild(new Cylinder(0.05f, 0.001f, Appearances.eyeAppearance()));
-        rightEyeTG.addChild(new Cylinder(0.055f, 0.025f, Appearances.eyeTransAppearance()));
+        rightEyeTG.addChild(new Cylinder(0.05f, 0.001f, normal, materials.eye()));
+        rightEyeTG.addChild(new Cylinder(0.055f, 0.025f, normal, materials.glassesLens()));
 
         //Make rightHook
         Transform3D rightHookRotateX = new Transform3D();
@@ -242,8 +242,7 @@ public class Person extends BranchGroup {
         TransformGroup rightHookTG = new TransformGroup();
         rightHookTG.setTransform(rightHookT3D);
         faceTG.addChild(rightHookTG);
-        rightHookTG.addChild(new Cylinder(0.003f, 0.25f, Appearances.eyeAppearance()));
-        rightHookTG.addChild(new Cylinder(0.0031f, 0.251f, Appearances.eyeTransAppearance()));
+        rightHookTG.addChild(new Cylinder(0.005f, 0.25f, normal, materials.glassesFrame()));
 
 
         //Make bridge
@@ -255,15 +254,14 @@ public class Person extends BranchGroup {
         TransformGroup bridgeTG = new TransformGroup();
         bridgeTG.setTransform(bridgeT3D);
         faceTG.addChild(bridgeTG);
-        bridgeTG.addChild(new Cylinder(0.002f, 0.05f, Appearances.eyeAppearance()));
-        bridgeTG.addChild(new Cylinder(0.0021f, 0.051f, Appearances.eyeTransAppearance()));
+        bridgeTG.addChild(new Cylinder(0.005f, 0.05f, normal, materials.glassesFrame()));
 
         //Make the nose
         offset.setTranslation(new Vector3f(0.0f, -0.045f, 0.24f));
         TransformGroup noseTG = new TransformGroup();
         noseTG.setTransform(offset);
         faceTG.addChild(noseTG);
-        noseTG.addChild(new Cone(0.05f, 0.08f, Appearances.skinAppearance()));
+        noseTG.addChild(new Cone(0.05f, 0.08f, normal, materials.skin()));
 
         //ANIMATION OF HEAD
         // Rotation is about the local Y axis by default

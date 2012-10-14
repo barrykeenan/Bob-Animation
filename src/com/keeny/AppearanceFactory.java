@@ -57,7 +57,6 @@ public class AppearanceFactory {
         return textureAppearance(white, "face.jpg");
     }
 
-
     public Appearance hair() {
         Color3f ginger = rgb(255, 128, 0);
 
@@ -75,6 +74,33 @@ public class AppearanceFactory {
     }
 
 
+    public Appearance visor() {
+        Color3f green = rgb(15, 100, 15);
+
+        Appearance appearance = mattAppearance(green);
+        appearance.setTransparencyAttributes(new TransparencyAttributes(TransparencyAttributes.NICEST, 0.75f));
+
+        return appearance;
+    }
+
+    public Appearance eye() {
+        return mattAppearance(white);
+    }
+
+    public Appearance glassesLens() {
+        Color3f blue = rgb(0, 0, 140);
+
+        Appearance appearance = mattAppearance(blue);
+        appearance.setTransparencyAttributes(new TransparencyAttributes(TransparencyAttributes.NICEST, 0.5f));
+
+        return appearance;
+    }
+
+    public Appearance glassesFrame() {
+        Color3f yellow = rgb(255, 234, 0);
+
+        return mattAppearance(yellow);
+    }
 
     private Appearance mattAppearance(Color3f diffuseColor){
         // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
@@ -109,4 +135,5 @@ public class AppearanceFactory {
     private static Color3f rgb(int r, int g, int b){
         return new Color3f(new Color(r, g, b));
     }
+
 }

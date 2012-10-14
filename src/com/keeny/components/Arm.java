@@ -137,14 +137,14 @@ public class Arm extends BranchGroup {
         TransformGroup lowerArmTG = new TransformGroup();
         lowerArmTG.setTransform(offset);
         elbowAngleTG.addChild(lowerArmTG);
-        lowerArmTG.addChild(new Cylinder(0.095f, 0.3f, Appearances.skinAppearance()));
+        lowerArmTG.addChild(new Cylinder(0.095f, 0.3f, normal, materials.skin()));
 
         //Make lower Arm 2 - add to the above TG
         offset.setTranslation(new Vector3f(0.0f, -0.3f, 0.0f));
         TransformGroup lowerArm2TG = new TransformGroup();
         lowerArm2TG.setTransform(offset);
         lowerArmTG.addChild(lowerArm2TG);
-        lowerArm2TG.addChild(new Cylinder(0.085f, 0.3f, Appearances.skinAppearance()));
+        lowerArm2TG.addChild(new Cylinder(0.085f, 0.3f, normal, materials.skin()));
 
         //Add the hand
         lowerArm2TG.addChild(hand());
@@ -196,7 +196,7 @@ public class Arm extends BranchGroup {
         BranchGroup handBG = s.getSceneGroup();
         //extract the shape so that you can set its appearance
         Shape3D hand = (Shape3D) handBG.getChild(0);
-        hand.setAppearance(Appearances.skinAppearance());
+        hand.setAppearance(materials.skin());
 
         //do the transformation
         Transform3D handRotX = new Transform3D();
