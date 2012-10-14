@@ -23,6 +23,7 @@ import javax.vecmath.Vector3f;
 public class Person extends BranchGroup {
 
     AppearanceFactory materials = new AppearanceFactory();
+    private int primFlags = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
 
     /**
      * Constructor - add the torso and pelvis components
@@ -170,8 +171,7 @@ public class Person extends BranchGroup {
         TransformGroup hairTG = new TransformGroup();
         hairTG.setTransform(hairRotate);
         faceTG.addChild(hairTG);
-        Sphere test = new Sphere(0.4f, Sphere.GENERATE_NORMALS |
-                Sphere.GENERATE_TEXTURE_COORDS, 20, Appearances.hairAppearance());
+        Sphere test = new Sphere(0.4f, primFlags, 20, materials.hair());
         hairTG.addChild(test);
 
         //Make band

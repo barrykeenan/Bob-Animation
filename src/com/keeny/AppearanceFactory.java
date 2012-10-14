@@ -2,10 +2,7 @@ package com.keeny;
 
 import com.sun.j3d.utils.image.TextureLoader;
 
-import javax.media.j3d.Appearance;
-import javax.media.j3d.Material;
-import javax.media.j3d.Texture;
-import javax.media.j3d.TextureAttributes;
+import javax.media.j3d.*;
 import javax.vecmath.Color3f;
 import java.awt.*;
 
@@ -28,28 +25,29 @@ public class AppearanceFactory {
     public Appearance cords() {
         Color3f navy = rgb(100, 100, 250);
 
-        Appearance appearance = mattAppearance(navy);
-
-        // Create a texture from the image file
-        TextureLoader tl = new TextureLoader("cords.jpg", null);
-        // Attach the texture to the appearance
-        if (tl != null) {
-            Texture cords = tl.getTexture();
-            appearance.setTexture(cords);
-        }
-
-        // Set blend mode
-        TextureAttributes textAttr = new TextureAttributes();
-        textAttr.setTextureMode(TextureAttributes.MODULATE);
-        appearance.setTextureAttributes(textAttr);
-
-        return appearance;
+        return textureAppearance(navy, "cords.jpg");
     }
 
     public Appearance skin() {
         Color3f skin = rgb(255, 181, 145);
 
         return mattAppearance(skin);
+    }
+
+    public Appearance hair() {
+        Color3f ginger = rgb(255, 128, 0);
+
+        Appearance appearance = textureAppearance(ginger, "hair.jpg");
+
+        // Scale the texture so it's about the same size as the original file
+        TextureAttributes texAttr = appearance.getTextureAttributes();
+        Transform3D textureTrans = new Transform3D();
+        textureTrans.setScale(4);
+        texAttr.setTextureTransform(textureTrans);
+
+        appearance.setTextureAttributes(texAttr);
+
+        return appearance;
     }
 
     private Appearance mattAppearance(Color3f diffuseColor){
@@ -63,13 +61,21 @@ public class AppearanceFactory {
         return appearance;
     }
 
-    private Appearance plasticAppearance(Color3f diffuseColor){
-        // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
-        Material material = new Material(black, black, diffuseColor, black, 120.0f);
-        material.setColorTarget(Material.AMBIENT_AND_DIFFUSE);
+    private Appearance textureAppearance(Color3f baseColour, String filename) {
+        Appearance appearance = mattAppearance(baseColour);
 
-        Appearance appearance = new Appearance();
-        appearance.setMaterial(material);
+        // Create a texture from the image file
+        TextureLoader tl = new TextureLoader(filename, null);
+        // Attach the texture to the appearance
+        if (tl != null) {
+            Texture cords = tl.getTexture();
+            appearance.setTexture(cords);
+        }
+
+        // Set blend mode
+        TextureAttributes textAttr = new TextureAttributes();
+        textAttr.setTextureMode(TextureAttributes.MODULATE);
+        appearance.setTextureAttributes(textAttr);
 
         return appearance;
     }
