@@ -27,72 +27,46 @@ import java.awt.event.WindowEvent;
  */
 public class AppMain extends JFrame {
 
-    //globals
+    BasicUniverse universe;
+    BranchGroup root;
+    BoundingSphere bounds = new BoundingSphere(new Point3d(0.0,0.0,0.0), 100); //area of effect
+
     private TransformGroup viewPlatformTG;
     private Transform3D originalTransform;
-    private BoundingSphere bounds = new BoundingSphere(new Point3d(0.0, 0.0, 0.0), 100.0);
+
+    /**
+     * TextureLoaders in the Appearances class need a component
+     * to load files into - so here's one they can hold on to
+     */
+    public static AppMain theApp;
 
     /**
      * Constructor
      */
     public AppMain() {
-
-        initComponents();
         setSize(600, 600);
-        GraphicsConfiguration graphicsConfig =
-                SimpleUniverse.getPreferredConfiguration();
+        initComponents();
+
+        GraphicsConfiguration graphicsConfig = SimpleUniverse.getPreferredConfiguration();
         Canvas3D canvas = new Canvas3D(graphicsConfig);
         getContentPane().add("Center", canvas);
-        BasicUniverse universe = new BasicUniverse(canvas, 20.0f);
 
-        //Whatever we do to this TG affects the view - used later to rotate the view
-        viewPlatformTG = universe.getViewPlatformTransform();
-        //Get the state of the current universe transform matrix
-        originalTransform = new Transform3D();
-        viewPlatformTG.getTransform(originalTransform);
-
-        //Make the scene and add it to the universe
-        //The universe has a view platform - this makes the graph visible
-        BranchGroup scene = makeGraph();
-        universe.addBranchGraph(scene);
-        universe.addBranchGraph(addBackground());
-
+        this.universe = new BasicUniverse(canvas, 20.0f);
+        this.root = new BranchGroup();
     }
 
-    //--------------------------------------------------
-
-    /**
-     * This is where the root node is created - everything is attached to this node
-     *
-     * @return
-     */
-    private BranchGroup makeGraph() {
-
-        BranchGroup objRoot = new BranchGroup();
-        Transform3D T3D = new Transform3D();
+    private void addProps() {
+        // x, y, z
 
         //add the floor
-        T3D.setTranslation(new Vector3f(0.0f, -2.1f, 0.0f));
-        TransformGroup floorTG = new TransformGroup();
-        floorTG.setTransform(T3D);
-        floorTG.addChild(new Box(50.0f, 0.1f, 50.0f, Box.GENERATE_NORMALS |
-                Box.GENERATE_TEXTURE_COORDS, Appearances.grassAppearance()));
-        objRoot.addChild(floorTG);
+        Box floor = new Box(50.0f, 0.1f, 50.0f, Box.GENERATE_NORMALS | Box.GENERATE_TEXTURE_COORDS, Appearances.grassAppearance());
+        this.addObject(floor, 0.0f, -2.1f, 0.0f);
 
-        //And He said, let there be light!
-        AmbientLight lightA = new AmbientLight();
-        lightA.setInfluencingBounds(bounds);
-        objRoot.addChild(lightA);
+        Sphere sphere = new Sphere(3f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance());
+//        this.addObject(sphere);
+    }
 
-        //Then He got picky...
-
-        //Its a really far away light source. So I don't think it matters where it is
-        Color rgb = new Color(80, 80, 60);
-        Color3f darkYellow = new Color3f(rgb);
-        DirectionalLight light1 = new DirectionalLight(darkYellow, new Vector3f(-2.0f, 0.0f, -1.0f));
-        light1.setInfluencingBounds(bounds);
-        objRoot.addChild(light1);
-
+    private void addActors() {
         // Create an identity transform to permit bob to move
         Transform3D walkT3D = new Transform3D();
         TransformGroup walkTG = new TransformGroup();
@@ -103,7 +77,7 @@ public class AppMain extends JFrame {
         Person bob = new Person();
         walkTG.addChild(bob);
 
-        objRoot.addChild(walkTG);
+        this.root.addChild(walkTG);
 
         //ANIMATION
         // Rotation is about the local X axis by default
@@ -120,6 +94,27 @@ public class AppMain extends JFrame {
         PositionInterpolator walkInterpolator = new PositionInterpolator(walkAlpha, walkTG, zAxis, 8.5f, -16f);
         walkInterpolator.setSchedulingBounds(system);
         walkTG.addChild(walkInterpolator);
+    }
+
+    private void addObject(Node object){
+        this.addObject(object, 0, 0, 0);
+    }
+
+    // addNode, addPrimitive?
+    private void addObject(Node object, float x, float y, float z){
+        Transform3D t3d = new Transform3D();
+        t3d.set(new Vector3f(x, y, z));
+        TransformGroup tg = new TransformGroup(t3d);
+
+        this.root.addChild(tg);
+        tg.addChild(object);
+    }
+
+    private void initCamera() {
+        //Whatever we do to this TG affects the view - used later to rotate the view
+        viewPlatformTG = universe.getViewPlatformTransform();
+
+        BoundingSphere system = new BoundingSphere();
 
         //PAN AND ROTATE CAMERA
         Alpha camAlpha = new Alpha(-1, 5000, 6000, 9000, 300, 6500);
@@ -139,29 +134,33 @@ public class AppMain extends JFrame {
         rots[6].set(new AxisAngle4d(0, 1, 0, Math.toRadians(-180 - 220)));
 
         Point3f[] positions = {new Point3f(0f, 3f, -16f),
-                               new Point3f(0f, 2f, -12f),
-                               new Point3f(4f, 1f, -8f),
-                               new Point3f(6f, 0f, 0f),
-                               new Point3f(5f, -0.4f, 8f),
-                               new Point3f(0f, -0.2f, 12f),
-                               new Point3f(-4.5f, 0.6f, 17.5f)};
-        RotPosPathInterpolator camInterpolator =
-                new RotPosPathInterpolator(camAlpha, viewPlatformTG, axis, knots, rots, positions);
+                new Point3f(0f, 2f, -12f),
+                new Point3f(4f, 1f, -8f),
+                new Point3f(6f, 0f, 0f),
+                new Point3f(5f, -0.4f, 8f),
+                new Point3f(0f, -0.2f, 12f),
+                new Point3f(-4.5f, 0.6f, 17.5f)};
+        RotPosPathInterpolator camInterpolator = new RotPosPathInterpolator(camAlpha, viewPlatformTG, axis, knots, rots, positions);
         camInterpolator.setSchedulingBounds(system);
-        objRoot.addChild(camInterpolator);
 
-        return objRoot;
+        this.root.addChild(camInterpolator);
+
+        // add the group of objects to the Universe
+        universe.addBranchGraph(this.root);
     }
 
-    //--------------------------------------------------
+    private Color3f rgb(int r, int g, int b){
+        return new Color3f(new Color(r, g, b));
+    }
 
     /**
      * Setup the lovely sky background
      *
      * @return
      */
-    private BranchGroup addBackground() {
-        BranchGroup backgroundRoot = new BranchGroup();
+    private void addBackground() {
+//        BranchGroup backgroundRoot = new BranchGroup();
+
         // Create the background object, the sphere to be textured,
         // and connect the sphere to the background as its geometry
         Background background = new Background();
@@ -186,11 +185,57 @@ public class AppMain extends JFrame {
         // Attach the texture to the background's appearance
         if (tex != null)
             backgroundApp.setTexture(tex.getTexture());
-        backgroundRoot.addChild(background);
-        return backgroundRoot;
+
+        this.root.addChild(background);
     }
 
-    //--------------------------------------------------
+    private void addLighting(){
+        Color3f white = new Color3f(1f, 1f, 1f);
+        Color3f yellow = rgb(255, 235, 0);
+        Color3f shadow = rgb(180, 180, 255);
+
+        // Ambient light is a very dull grey (think shadow colour)
+        // AmbientLight lightA = new AmbientLight(new Color3f(new Color(100, 100, 255)));
+        AmbientLight ambient = new AmbientLight(shadow);
+        ambient.setInfluencingBounds(bounds);
+        this.root.addChild(ambient);
+
+        Vector3f downDirection = new Vector3f(0f, -1.0f, 0f);
+        DirectionalLight downLight = new DirectionalLight(yellow, downDirection);
+        downLight.setInfluencingBounds(bounds);
+        this.root.addChild(downLight);
+
+        this.addDirectionalLight(-1.0f, -1.0f, -2.0f); // right, down, into screen
+        this.addDirectionalLight(-1.0f, -1.0f, 0f); // right, straight down
+        this.addDirectionalLight(-1.0f, -1.0f, 2.0f); // right, down, towards viewer
+    }
+
+    private void addDirectionalLight(float x, float y, float z){
+        Color3f white = rgb(255, 238, 200);
+
+        Vector3f direction = new Vector3f(x, y, z);
+        DirectionalLight light = new DirectionalLight(white, direction);
+        light.setInfluencingBounds(this.bounds);
+
+        this.root.addChild(light);
+    }
+
+    /**
+     * Main method starts the show
+     *
+     * @param args
+     */
+    public static void main(String[] args) {
+        theApp = new AppMain();
+        theApp.setVisible(true);
+
+        theApp.addBackground();
+        theApp.addLighting();
+        theApp.addProps();
+        theApp.addActors();
+
+        theApp.initCamera();
+    }
 
     /**
      * Add key listeners etc
@@ -248,33 +293,11 @@ public class AppMain extends JFrame {
         });
     }
 
-    //--------------------------------------------------
-
     /**
      * Exit Application **
      */
     private void exitForm(WindowEvent evt) {
         System.exit(0);
     }
-
-    //--------------------------------------------------
-
-    /**
-     * TextureLoaders in the Appearances class need a component
-     * to load files into - so here's one they can hold on to
-     */
-    public static AppMain theApp;
-
-    /**
-     * Main method starts the show
-     *
-     * @param args
-     */
-    public static void main(String[] args) {
-        theApp = new AppMain();
-        theApp.setVisible(true);
-    }
-
-    //--------------------------------------------------
 
 }

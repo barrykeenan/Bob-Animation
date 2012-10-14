@@ -117,26 +117,21 @@ public class Appearances {
     //--------------------------------------------------
 
     public static Appearance skinAppearance() {
-        Appearance appear = new Appearance();
-        Material material = new Material();
+        Color3f skin = rgb(255, 181, 145);
+        Color3f lightSkin = rgb(255, 190, 160);
+        Color3f darkSkin = rgb(255, 176, 138);
 
-        Color rgb = new Color(255, 181, 145);
-        Color3f skin = new Color3f(rgb);
+        Appearance skinApp = new Appearance();
+        
+        // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
+        Material skinMat = new Material(darkSkin, skin, skin, lightSkin, 50.0f);
+        skinApp.setMaterial(skinMat);
 
-        rgb = new Color(255, 190, 160);
-        Color3f lightSkin = new Color3f(rgb);
+        return skinApp;
+    }
 
-        rgb = new Color(255, 176, 138);
-        Color3f darkSkin = new Color3f(rgb);
-
-        material.setAmbientColor(darkSkin);
-        material.setDiffuseColor(skin);
-        material.setSpecularColor(lightSkin);
-        material.setShininess(0.0f);
-
-        appear.setMaterial(material);
-
-        return appear;
+    private static Color3f rgb(int r, int g, int b){
+        return new Color3f(new Color(r, g, b));
     }
 
     //--------------------------------------------------
