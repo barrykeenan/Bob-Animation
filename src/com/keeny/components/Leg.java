@@ -1,6 +1,8 @@
 package com.keeny.components;
 
+import com.keeny.AppearanceFactory;
 import com.sun.j3d.utils.geometry.Cylinder;
+import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.geometry.Sphere;
 
 import javax.media.j3d.*;
@@ -17,6 +19,8 @@ import javax.vecmath.Vector3f;
 public class Leg extends BranchGroup {
 
     private long phaseDelay;
+    private AppearanceFactory materials = new AppearanceFactory();
+    private int primflags = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
 
     //Constructor
     public Leg(long phaseDelay) {
@@ -39,8 +43,7 @@ public class Leg extends BranchGroup {
         hipTG.setCapability(TransformGroup.ALLOW_TRANSFORM_READ);
 
         //Add the hip shape
-        hipTG.addChild(new Sphere(0.2f, Sphere.GENERATE_NORMALS |
-                Sphere.GENERATE_TEXTURE_COORDS, 20, Appearances.cordsAppearance()));
+        hipTG.addChild(new Sphere(0.2f, primflags, 20, materials.cords()));
 
 
         //MAKE UPPER LEG
@@ -49,8 +52,7 @@ public class Leg extends BranchGroup {
         TransformGroup upperLegTG = new TransformGroup();
         upperLegTG.setTransform(offset);
         hipTG.addChild(upperLegTG);
-        upperLegTG.addChild(new Cylinder(0.2f, 0.4f, Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS, Appearances.cordsAppearance()));
+        upperLegTG.addChild(new Cylinder(0.2f, 0.4f, primflags, materials.cords()));
 
         //Make upper leg 2
         //Move cylinder down 0.4 - the length of the previous shape
@@ -58,8 +60,7 @@ public class Leg extends BranchGroup {
         TransformGroup upperLeg2TG = new TransformGroup();
         upperLeg2TG.setTransform(offset);
         upperLegTG.addChild(upperLeg2TG);
-        upperLeg2TG.addChild(new Cylinder(0.19f, 0.4f, Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS, Appearances.cordsAppearance()));
+        upperLeg2TG.addChild(new Cylinder(0.19f, 0.4f, primflags, materials.cords()));
 
 
         //ATTACH LOWER LEG
@@ -121,8 +122,7 @@ public class Leg extends BranchGroup {
         kneeTG1.addChild(kneeTG);
 
         //Add the knee shape
-        kneeTG.addChild(new Sphere(0.19f, Sphere.GENERATE_NORMALS |
-                Sphere.GENERATE_TEXTURE_COORDS, 20, Appearances.cordsAppearance()));
+        kneeTG.addChild(new Sphere(0.19f, primflags, 20, materials.cords()));
 
         //MAKE LOWER LEG
         //Lower leg component 1
@@ -130,16 +130,14 @@ public class Leg extends BranchGroup {
         TransformGroup lowerLegTG = new TransformGroup();
         lowerLegTG.setTransform(offset);
         kneeTG.addChild(lowerLegTG);
-        lowerLegTG.addChild(new Cylinder(0.19f, 0.4f, Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS, Appearances.cordsAppearance()));
+        lowerLegTG.addChild(new Cylinder(0.19f, 0.4f, primflags, materials.cords()));
 
         //Lower leg component 2
         offset.setTranslation(new Vector3f(0.0f, -0.5f, 0.0f));
         TransformGroup lowerLeg2TG = new TransformGroup();
         lowerLeg2TG.setTransform(offset);
         lowerLegTG.addChild(lowerLeg2TG);
-        lowerLeg2TG.addChild(new Cylinder(0.21f, 0.6f, Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS, Appearances.cordsAppearance()));
+        lowerLeg2TG.addChild(new Cylinder(0.21f, 0.6f, primflags, materials.cords()));
 
 
         //ATTACH FOOT

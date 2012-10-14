@@ -1,7 +1,9 @@
 package com.keeny.components;
 
+import com.keeny.AppearanceFactory;
 import com.sun.j3d.utils.geometry.Cone;
 import com.sun.j3d.utils.geometry.Cylinder;
+import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.geometry.Sphere;
 
 import javax.media.j3d.*;
@@ -19,6 +21,8 @@ import javax.vecmath.Vector3f;
  * arms and legs are in their respective clases.
  */
 public class Person extends BranchGroup {
+
+    AppearanceFactory materials = new AppearanceFactory();
 
     /**
      * Constructor - add the torso and pelvis components
@@ -53,10 +57,9 @@ public class Person extends BranchGroup {
         TransformGroup trunkTG = new TransformGroup();
         trunkTG.setTransform(offset);
         torsoTG.addChild(trunkTG);
-        trunkTG.addChild(new Cylinder(0.4f, 1.0f,
-                Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS,
-                Appearances.shirtAppearance()));
+//        trunkTG.addChild(new Cylinder(0.4f, 1.0f, Cylinder.GENERATE_NORMALS | Cylinder.GENERATE_TEXTURE_COORDS, Appearances.shirtAppearance()));
+
+        trunkTG.addChild(new Cylinder(0.4f, 1.0f, Primitive.GENERATE_TEXTURE_COORDS, Appearances.shirtAppearance()));
 
         //Make collar
         offset.setScale(new Vector3d(1.0, 0.3, 1.0));
@@ -302,14 +305,15 @@ public class Person extends BranchGroup {
         //Re-use to place objects
         Transform3D offset = new Transform3D();
 
+        int primflags = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
+
         //Make pelvis
         offset.setScale(new Vector3d(1.0, 0.8, 0.5));
         offset.setTranslation(new Vector3f(0.0f, 0.0f, 0.0f));
         TransformGroup pelvisTG = new TransformGroup();
         pelvisTG.setTransform(offset);
         localRoot.addChild(pelvisTG);
-        pelvisTG.addChild(new Sphere(0.4f, Sphere.GENERATE_NORMALS |
-                Sphere.GENERATE_TEXTURE_COORDS, 20, Appearances.cordsAppearance()));
+        pelvisTG.addChild(new Sphere(0.4f, primflags, 20, materials.cords()));
 
         //Make belt
         offset.setScale(new Vector3d(1.0, 1.0, 0.5));
@@ -317,8 +321,7 @@ public class Person extends BranchGroup {
         TransformGroup beltTG = new TransformGroup();
         beltTG.setTransform(offset);
         localRoot.addChild(beltTG);
-        beltTG.addChild(new Cylinder(0.41f, 0.1f, Cylinder.GENERATE_NORMALS |
-                Cylinder.GENERATE_TEXTURE_COORDS, Appearances.cordsAppearance()));
+        beltTG.addChild(new Cylinder(0.41f, 0.1f, primflags, materials.cords()));
 
         //Make left leg - move down by offset
         offset.setScale(new Vector3d(1.0, 1.0, 1.0));
