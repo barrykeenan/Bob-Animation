@@ -27,7 +27,7 @@ public class Arm extends BranchGroup {
     private boolean left;
 
     private AppearanceFactory materials = new AppearanceFactory();
-    private int normal = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
+    private int normal = Primitive.GENERATE_NORMALS;
     private int textured = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
 
 

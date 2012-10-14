@@ -1,8 +1,8 @@
 package com.keeny;
 
-import com.keeny.components.Appearances;
 import com.keeny.components.Person;
 import com.sun.j3d.utils.geometry.Box;
+import com.sun.j3d.utils.geometry.Primitive;
 import com.sun.j3d.utils.geometry.Sphere;
 import com.sun.j3d.utils.image.TextureLoader;
 import com.sun.j3d.utils.universe.SimpleUniverse;
@@ -30,6 +30,11 @@ public class AppMain extends JFrame {
     BasicUniverse universe;
     BranchGroup root;
     BoundingSphere bounds = new BoundingSphere(new Point3d(0.0,0.0,0.0), 100); //area of effect
+
+
+    private AppearanceFactory materials = new AppearanceFactory();
+    private int normal = Primitive.GENERATE_NORMALS;
+    private int textured = Primitive.GENERATE_NORMALS + Primitive.GENERATE_TEXTURE_COORDS;
 
     private TransformGroup viewPlatformTG;
     private Transform3D originalTransform;
@@ -59,7 +64,7 @@ public class AppMain extends JFrame {
         // x, y, z
 
         //add the floor
-        Box floor = new Box(50.0f, 0.1f, 50.0f, Box.GENERATE_NORMALS | Box.GENERATE_TEXTURE_COORDS, Appearances.grassAppearance());
+        Box floor = new Box(50.0f, 0.1f, 50.0f, textured, materials.grass());
         this.addObject(floor, 0.0f, -2.1f, 0.0f);
 
 //        Sphere sphere = new Sphere(3f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance());

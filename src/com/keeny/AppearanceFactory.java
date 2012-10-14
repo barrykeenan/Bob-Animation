@@ -29,6 +29,18 @@ public class AppearanceFactory {
         return textureAppearance(navy, "cords.jpg");
     }
 
+    public Appearance belt() {
+        Color3f brown = rgb(64, 0, 0);
+
+        return mattAppearance(brown);
+    }
+
+    public Appearance shoe() {
+        Color3f brown = rgb(64, 0, 0);
+
+        return mattAppearance(brown);
+    }
+
     public Appearance shirt() {
         Color3f offWhite = rgb(250, 250, 250);
 
@@ -100,6 +112,12 @@ public class AppearanceFactory {
         Color3f yellow = rgb(255, 234, 0);
 
         return mattAppearance(yellow);
+    }
+
+    public Appearance grass() {
+        Color3f grass = rgb(15, 100, 15);
+
+       return textureAppearance(white, "grass.jpg");
     }
 
     private Appearance mattAppearance(Color3f diffuseColor){
