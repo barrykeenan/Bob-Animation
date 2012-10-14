@@ -86,7 +86,11 @@ public class AppMain extends JFrame {
         Transform3D zAxis = new Transform3D();
         zAxis.rotY(Math.PI / 2);
 
-        Alpha walkAlpha = new Alpha(-1, 5000, 6000, 15500, 0, 0);
+        int loop = -1;
+        long triggerTime = 1000;
+        long delay = 2000;
+        long duration = 15500;
+        Alpha walkAlpha = new Alpha(loop, triggerTime, delay, duration, 0, 0);
 
         BoundingSphere system = new BoundingSphere();
 
@@ -117,7 +121,14 @@ public class AppMain extends JFrame {
         BoundingSphere system = new BoundingSphere();
 
         //PAN AND ROTATE CAMERA
-        Alpha camAlpha = new Alpha(-1, 5000, 6000, 9000, 300, 6500);
+        int loop = -1;
+        long triggerTime = 1000;
+        long delay = 2000;
+        long duration = 9000;
+        long easeInDuration = 300;
+        long easeOutDuration = 6500;
+        Alpha camAlpha = new Alpha(loop, triggerTime, delay, duration, easeInDuration, easeOutDuration);
+
         Transform3D axis = new Transform3D();
         float[] knots = {0.0f, 0.2f, 0.4f, 0.7f, 0.85f, 0.95f, 1.0f};
 
