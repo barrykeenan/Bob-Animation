@@ -62,7 +62,7 @@ public class AppMain extends JFrame {
         Box floor = new Box(50.0f, 0.1f, 50.0f, Box.GENERATE_NORMALS | Box.GENERATE_TEXTURE_COORDS, Appearances.grassAppearance());
         this.addObject(floor, 0.0f, -2.1f, 0.0f);
 
-        Sphere sphere = new Sphere(3f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance());
+//        Sphere sphere = new Sphere(3f, Sphere.GENERATE_NORMALS, Appearances.skinAppearance());
 //        this.addObject(sphere);
     }
 
@@ -191,8 +191,8 @@ public class AppMain extends JFrame {
 
     private void addLighting(){
         Color3f white = new Color3f(1f, 1f, 1f);
-        Color3f yellow = rgb(255, 235, 0);
-        Color3f shadow = rgb(180, 180, 255);
+        Color3f yellow = rgb(70, 70, 30);
+        Color3f shadow = rgb(200, 200, 255);
 
         // Ambient light is a very dull grey (think shadow colour)
         // AmbientLight lightA = new AmbientLight(new Color3f(new Color(100, 100, 255)));
@@ -205,16 +205,16 @@ public class AppMain extends JFrame {
         downLight.setInfluencingBounds(bounds);
         this.root.addChild(downLight);
 
-        this.addDirectionalLight(-1.0f, -1.0f, -2.0f); // right, down, into screen
+//        this.addDirectionalLight(-1.0f, -1.0f, -2.0f); // right, down, into screen
         this.addDirectionalLight(-1.0f, -1.0f, 0f); // right, straight down
-        this.addDirectionalLight(-1.0f, -1.0f, 2.0f); // right, down, towards viewer
+//        this.addDirectionalLight(-1.0f, -1.0f, 2.0f); // right, down, towards viewer
     }
 
     private void addDirectionalLight(float x, float y, float z){
-        Color3f white = rgb(255, 238, 200);
+        Color3f yellow = rgb(80, 80, 40);
 
         Vector3f direction = new Vector3f(x, y, z);
-        DirectionalLight light = new DirectionalLight(white, direction);
+        DirectionalLight light = new DirectionalLight(yellow, direction);
         light.setInfluencingBounds(this.bounds);
 
         this.root.addChild(light);

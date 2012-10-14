@@ -20,6 +20,8 @@ import java.awt.*;
  */
 public class Appearances {
 
+    private static Color3f black = rgb(0, 0, 0);
+
     public static Appearance shirtAppearance() {
         Appearance appear = torsoAppearance();
 
@@ -118,13 +120,12 @@ public class Appearances {
 
     public static Appearance skinAppearance() {
         Color3f skin = rgb(255, 181, 145);
-        Color3f lightSkin = rgb(255, 190, 160);
-        Color3f darkSkin = rgb(255, 176, 138);
+
+        // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
+        Material skinMat = new Material(black, black, skin, black, 20.0f);
+        skinMat.setColorTarget(Material.AMBIENT_AND_DIFFUSE);
 
         Appearance skinApp = new Appearance();
-        
-        // ambientColor, emissiveColor, diffuseColor, specularColor, shininess
-        Material skinMat = new Material(darkSkin, skin, skin, lightSkin, 50.0f);
         skinApp.setMaterial(skinMat);
 
         return skinApp;

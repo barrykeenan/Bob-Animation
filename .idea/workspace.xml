@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="64162a13-9a24-4563-80a0-f6b3c5cd23ef" name="Default" comment="" />
+    <list default="true" id="64162a13-9a24-4563-80a0-f6b3c5cd23ef" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/AppMain.java" afterPath="$PROJECT_DIR$/src/com/keeny/AppMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" afterPath="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
+    </list>
     <ignored path="Bob Animation.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,10 +62,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="AppMain.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="AppMain.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/AppMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="66" column="18" selection-start="1975" selection-end="1975" vertical-scroll-proportion="0.875">
+            <state line="65" column="35" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -87,10 +91,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Appearances.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Appearances.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="132" column="19" selection-start="4288" selection-end="4288" vertical-scroll-proportion="0.0">
+            <state line="157" column="7" selection-start="5083" selection-end="5083" vertical-scroll-proportion="0.27134988">
               <folding />
             </state>
           </provider>
@@ -110,8 +114,8 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/src/com/keeny/components/Arm.java" />
-        <option value="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
         <option value="$PROJECT_DIR$/src/com/keeny/AppMain.java" />
+        <option value="$PROJECT_DIR$/src/com/keeny/components/Appearances.java" />
       </list>
     </option>
   </component>
@@ -429,7 +433,7 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24928162" sideWeight="0.5139442" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4860558" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4860558" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -511,13 +515,6 @@
         <state line="62" column="61" selection-start="2128" selection-end="2128" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="132" column="19" selection-start="4288" selection-end="4288" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/Home/lib/ext/j3dcore.jar!/javax/media/j3d/Group.class">
       <provider selected="true" editor-type-id="text-editor">
         <state line="52" column="0" selection-start="2121" selection-end="2121" vertical-scroll-proportion="1.0912981">
@@ -527,10 +524,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/keeny/AppMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="66" column="18" selection-start="1975" selection-end="1975" vertical-scroll-proportion="0.875">
+        <state line="65" column="35" selection-start="1971" selection-end="1971" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/keeny/components/Appearances.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="157" column="7" selection-start="5083" selection-end="5083" vertical-scroll-proportion="0.27134988">
+          <folding />
         </state>
       </provider>
     </entry>
